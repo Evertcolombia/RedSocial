@@ -1,0 +1,196 @@
+---Walkin Skeleton app Api
+
+1- at first wee need choose some project defaul from c#
+to create our apps
+
+execute the follow commands:
+    dotnet -n sln
+    dotnet new classlib -n Domain
+    dotnet new classlib -n Application
+    dotnet new classlib -n Persistance
+    dotnet new webapi -n API
+
+2- execute the follow to integrate
+with the solution fill
+
+    dotnet sln add Domain/
+    dotnet sln add Application/
+    dotnet sln add Domain Persistence/
+    dotnet sln add Domain API/
+
+after that you can se the list with
+    dotnet sln list
+
+3- now add reference viceversa from Application to Domain
+    cd Application 
+    dotnet add reference ../Domain/
+    dotnet add reference ../Persistence/
+
+do the same from API/
+    cd API/
+    dotnet add reference ../Application
+
+    cd Persistance/
+    dotnet add reference ../Domain
+
+4- no we can go to see on VS our project folder
+
+--each folder in our project will be a library
+ifwe see into each folder we will se a new files and creates
+
+5- delete the forecst controller an clss file from api folder
+this is a simple example to use
+
+now create a  controller in api/controllers called
+valuesDontrollers.cs
+
+paste this code into this file
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+
+namespace DatingApp.API.Controllers
+{
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ValuesController : ControllerBase
+    {
+        // GET api/values
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public ActionResult<string> Get(int id)
+        {
+            return "value";
+        }
+
+        // POST api/values
+        [HttpPost]
+        public void Post([FromBody] string value)
+        {
+        }
+
+        // PUT api/values/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
+        {
+        }
+
+        // DELETE api/values/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
+    }
+}
+
+6- open the terminal
+
+executes the domain cli
+    dotnet run -p API/
+
+    this roun our program ho lives in API/
+
+now go to browser and looks for localhost:5000/api/values
+and see it works
+
+7- now in the Domain/  rename the file
+class1  to value.sc
+
+it is called as Domain entity
+
+im this file change the Name os the class.
+and this properties
+
+
+        public int Id { get; set; } // get and set a random value
+        public string Name { get; set; }
+
+8- Now on Persistence/ will create a DB context
+
+in this folder rename the class file to 
+DataContext.css
+
+name of the class DataContext : DbContext
+
+no install this object
+ctrl + shitf + p
+
+look for nuget add package
+selec and look for Microsoft.EntityFrameworkCore
+select the version and the las option forpersosten....
+
+slso the packet Microsoft.EntityFrameworkCore.sqllite
+or use this<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.3" />
+
+
+all this in VS code and press restore to 
+
+restore the persintente app
+
+nos update all tje .cspro files
+where netestandard is less to 2.1
+
+
+dotnet restore
+
+
+
+ continue editing the dbcontextx.cs 
+
+ into the class
+
+    // create a constructor
+        public DataContext(DbContextOptions options) : base(options)
+        {
+        }
+
+        // Value is the entity we want to use to conect with the db
+        public DbSet<Value> Values { get; set;}
+
+    it will be used fRom domain entity so include it
+    
+    using Domain;
+    using Microsoft.EntityFrameworkCore
+
+9- now on api/starupt.cs
+
+    services.AddDbContext<DataContext>(opt => 
+    {
+        opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+    });
+
+include this code on the services function it will use the
+persistent datacontext. and sqllite to get this
+services
+
+also
+    using Persistence;
+    using Microsoft.EntityFrameworkCore
+
+
+now in the api/app.settings.json
+
+  "ConnectionStrings": {
+        "DefaultConnection": "Data source=reactivities.db"
+    },
+
+before to loggin
+
+
+10- now on terminal executes 
+     dotnet tool install --global dotnet-ef
+
+now you can migrate files
+in root folder of project executes
+
+    dotnet ef migrstions add InitialCreate -p Persistance/ -s API/

@@ -1,0 +1,126 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/fantasma/Desktop/my-project/c#project/redsocial/Persistence/Persistence.csproj": {}
+  },
+  "projects": {
+    "/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/Domain.csproj",
+        "packagesPath": "/home/fantasma/.nuget/packages/",
+        "outputPath": "/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/fantasma/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/fantasma/Desktop/my-project/c#project/redsocial/Persistence/Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/fantasma/Desktop/my-project/c#project/redsocial/Persistence/Persistence.csproj",
+        "projectName": "Persistence",
+        "projectPath": "/home/fantasma/Desktop/my-project/c#project/redsocial/Persistence/Persistence.csproj",
+        "packagesPath": "/home/fantasma/.nuget/packages/",
+        "outputPath": "/home/fantasma/Desktop/my-project/c#project/redsocial/Persistence/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/fantasma/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/Domain.csproj": {
+                "projectPath": "/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

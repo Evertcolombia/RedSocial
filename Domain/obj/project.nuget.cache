@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "NG6B+7xBWTWFpNCUxYj3MY5xZOAirJKkbABZiVFrHbKPAqblXOElydhbX2DZOrTFfo2Dcg037cI0FbICDjIvPg==",
+  "success": true,
+  "projectFilePath": "/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/Domain.csproj",
+  "expectedPackageFiles": [
+    "/home/fantasma/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/home/fantasma/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

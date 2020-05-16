@@ -1,0 +1,14 @@
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/bin/Debug/netstandard2.0/Application.deps.json
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/bin/Debug/netstandard2.0/Application.dll
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/bin/Debug/netstandard2.0/Application.pdb
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/bin/Debug/netstandard2.0/Domain.dll
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/bin/Debug/netstandard2.0/Persistence.dll
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/bin/Debug/netstandard2.0/Domain.pdb
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/bin/Debug/netstandard2.0/Persistence.pdb
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/obj/Debug/netstandard2.0/Application.csprojAssemblyReference.cache
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/obj/Debug/netstandard2.0/Application.csproj.CoreCompileInputs.cache
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/obj/Debug/netstandard2.0/Application.AssemblyInfoInputs.cache
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/obj/Debug/netstandard2.0/Application.AssemblyInfo.cs
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/obj/Debug/netstandard2.0/Application.csproj.CopyComplete
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/obj/Debug/netstandard2.0/Application.dll
+/home/fantasma/Desktop/my-project/c#project/redsocial/Application/obj/Debug/netstandard2.0/Application.pdb

@@ -1,0 +1,9 @@
+/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/bin/Debug/netstandard2.0/Domain.deps.json
+/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/bin/Debug/netstandard2.0/Domain.dll
+/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/bin/Debug/netstandard2.0/Domain.pdb
+/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/obj/Debug/netstandard2.0/Domain.csprojAssemblyReference.cache
+/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/obj/Debug/netstandard2.0/Domain.csproj.CoreCompileInputs.cache
+/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/obj/Debug/netstandard2.0/Domain.AssemblyInfoInputs.cache
+/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/obj/Debug/netstandard2.0/Domain.AssemblyInfo.cs
+/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/obj/Debug/netstandard2.0/Domain.dll
+/home/fantasma/Desktop/my-project/c#project/redsocial/Domain/obj/Debug/netstandard2.0/Domain.pdb
