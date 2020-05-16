@@ -194,3 +194,55 @@ now you can migrate files
 in root folder of project executes
 
     dotnet ef migrstions add InitialCreate -p Persistance/ -s API/
+
+
+13- Creating the database
+
+our program when init wanst to ask if there are a database
+and if no it need  create one based on our migrations
+
+it will be created in the api/program.cs the main point of our
+Application
+
+public static void Main(string[] args)
+        {
+            //Instanciates a host
+            var host = CreateHostBuilder(args).Build();
+
+            // It will happen before to continue with the rest
+            // out of this block of code
+            //get an scope for the services running on the host
+            using(var scope = host.Services.CreateScope())
+            {
+                // get te services
+                var services = scope.ServiceProvider;
+        
+                try
+                {
+                    //get the DataContext
+                    var context = services.GetRequiredService<DataContext>();
+                    //Migrate will create a DB if not exists and then migratte
+                    context.Database.Migrate();
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occurred during migration");
+                }
+                //run our host with DB up.
+                host.Run();
+
+            }
+
+        }
+
+now we can run our command to run the host program
+    
+    dotnet watch run
+
+it will run and we will get a redsocial.db fil  in our api folder
+
+if you want visialize data:
+    ctrl + shift + p 
+        search 'sqllite' and choos the open database option
+taht will let you see db tables

@@ -26,6 +26,7 @@
         "dependencies": {
           "Application": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "3.1.2",
+          "Microsoft.Extensions.DependencyInjection": "3.1.2",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
