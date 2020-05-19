@@ -1,6 +1,9 @@
 ---Walkin Skeleton app Api
 
-1- at first wee need choose some project defaul from c#
+6-Creating the ASP.NET Core solutions and projects using the DotNet CLI
+- at first wee need choose some project defaul from c#
+
+
 to create our apps
 
 execute the follow commands:
@@ -10,7 +13,7 @@ execute the follow commands:
     dotnet new classlib -n Persistance
     dotnet new webapi -n API
 
-2- execute the follow to integrate
+execute the follow to integrate
 with the solution fill
 
     dotnet sln add Domain/
@@ -21,7 +24,7 @@ with the solution fill
 after that you can se the list with
     dotnet sln list
 
-3- now add reference viceversa from Application to Domain
+ now add reference viceversa from Application to Domain
     cd Application 
     dotnet add reference ../Domain/
     dotnet add reference ../Persistence/
@@ -33,16 +36,20 @@ do the same from API/
     cd Persistance/
     dotnet add reference ../Domain
 
-4- no we can go to see on VS our project folder
+ no we can go to see on VS our project folder
 
 --each folder in our project will be a library
 ifwe see into each folder we will se a new files and creates
 
-5- delete the forecst controller an clss file from api folder
+
+7- Creating the project references using the DotNet CLI
+
+
+ delete the forecst controller an clss file from api folder
 this is a simple example to use
 
 now create a  controller in api/controllers called
-valuesDontrollers.cs
+valuesControllers.cs
 
 paste this code into this file
 
@@ -93,7 +100,7 @@ namespace DatingApp.API.Controllers
     }
 }
 
-6- open the terminal
+open the terminal
 
 executes the domain cli
     dotnet run -p API/
@@ -103,7 +110,11 @@ executes the domain cli
 now go to browser and looks for localhost:5000/api/values
 and see it works
 
-7- now in the Domain/  rename the file
+
+10. Creating a Domain entity
+
+
+now in the Domain/  rename the file
 class1  to value.sc
 
 it is called as Domain entity
@@ -115,7 +126,7 @@ and this properties
         public int Id { get; set; } // get and set a random value
         public string Name { get; set; }
 
-8- Now on Persistence/ will create a DB context
+Now on Persistence/ will create a DB context
 
 in this folder rename the class file to 
 DataContext.css
@@ -140,12 +151,13 @@ restore the persintente app
 nos update all tje .cspro files
 where netestandard is less to 2.1
 
-
 dotnet restore
 
 
+11. Creating the DbContext and service
 
- continue editing the dbcontextx.cs 
+
+continue editing the dbcontextx.cs 
 
  into the class
 
@@ -162,7 +174,7 @@ dotnet restore
     using Domain;
     using Microsoft.EntityFrameworkCore
 
-9- now on api/starupt.cs
+now on api/starupt.cs
 
     services.AddDbContext<DataContext>(opt => 
     {
@@ -187,13 +199,13 @@ now in the api/app.settings.json
 before to loggin
 
 
-10- now on terminal executes 
+- now on terminal executes 
      dotnet tool install --global dotnet-ef
 
 now you can migrate files
 in root folder of project executes
 
-    dotnet ef migrstions add InitialCreate -p Persistance/ -s API/
+    dotnet ef migrations add InitialCreate -p Persistance/ -s API/
 
 
 13- Creating the database
@@ -246,3 +258,74 @@ if you want visialize data:
     ctrl + shift + p 
         search 'sqllite' and choos the open database option
 taht will let you see db tables
+
+
+14-- Seeding data using entity framework fluent configutation
+
+now in the PersistenceDataContext.cs
+
+//protected makes the object visible only for it self sclass
+//ModelBuilder let construc a mapping tables and relationship of the
+//database based on the entities
+protected override void OnModelCreating(ModelBuilder builder)
+        {
+            // create the entity
+            builder.Entity<Value>()
+                .HasData( // set tada into the entity
+                    new Value {Id = 1, Name  = "el evert"},
+                    new Value {Id = 2, Name  = "el evert2"},
+                    new Value {Id = 3, Name  = "el evert3"}
+                );
+        }
+
+now in console at the nroot makes a new migration
+
+    dotnet ef migrations add SeedValues -p Persistence/ -s API/
+
+now in the API/ start the api Server
+    dotnet watch run
+
+it will persisnte the data on our daba when the program runs
+
+
+
+15- Using Dependency injection
+
+go to API/valuesControllers
+
+in this controller values controller will create a constructor
+
+	//private only for this scope, only read, and the _context
+	// means it is privat;
+	private readonly DataContext _context;
+
+	//data contex froim persistance entity
+	public ValuesController(DataContext, context)
+	{
+			// this._context = context;
+			_context = context;
+	}
+
+	now we want to access to our dataContext context
+	from our values controller 
+	so will return all the values from the 
+	tables our database
+
+change the get method call to look like this:
+
+	// Values from our Values class on domain
+	public ActionResult<IEnumerable<Value>> Get()
+        {
+						//will do the query to database
+            var values = _context.Values.ToList();
+						//if all is fine return values and 200 code
+            return Ok(values);
+        }
+
+// now to get a better performance
+	public async Task<ActionResult<IEnumerable<Value>>> Get()
+        {
+						// and do it with await
+            var values = await _context.Values.ToListAsync();
+            return Ok(values);
+        }
