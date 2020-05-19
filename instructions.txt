@@ -325,7 +325,14 @@ change the get method call to look like this:
 // now to get a better performance
 	public async Task<ActionResult<IEnumerable<Value>>> Get()
         {
-						// and do it with await
+			// and do it with await
             var values = await _context.Values.ToListAsync();
             return Ok(values);
         }
+
+nos do the  get id value endpoint asyncronous too
+
+    public async task <ActionResult<Value>> Get(int id) {
+        var value = await _context.Values.FindAsync(id);
+    }
+
