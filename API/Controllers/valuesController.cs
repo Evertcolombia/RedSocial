@@ -8,12 +8,20 @@ using Persistence;
 
 namespace DatingApp.API.Controllers
 {
+    // specifies the routes structures
+    // creates a new route with this controller
     [Route("api/[controller]")]
     [ApiController]
+
+    // Values controller will inheritance from controllerBase
+    // is a base calsss for mvc controllers
     public class ValuesController : ControllerBase
     {
 
+        // extract  the context from DataContext make it private
         private readonly DataContext _context;
+        // instanciate the controller for DataContext using
+        // the stracted context
         public ValuesController(DataContext context) {
             this._context = context;
         }

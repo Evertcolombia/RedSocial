@@ -15,8 +15,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API
 {
+    //API interface lawyer: Will be called when a host is ready set
+    // and when end the call will use the migrate methos defined in the program file
     public class Startup
     {
+        //Constructor
+        // Iconfiguraiton interface to use our 
+        // configuration applied thorugh this interface
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,10 +32,15 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // register the DataContext as a service by usinng
+            // addDbContext in iserviceCollection
             services.AddDbContext<DataContext>(opt => 
             {
+                // use Sqlite as db user configuration from
+                // our ocnfig file
                 opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
+            // add services for controllers
             services.AddControllers();
         }
 

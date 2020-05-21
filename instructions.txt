@@ -336,3 +336,24 @@ nos do the  get id value endpoint asyncronous too
         var value = await _context.Values.FindAsync(id);
     }
 
+you can test the api with postman an the urls as request
+
+
+
+16- Using create-react-app to create our React Application
+
+in this link you'll find documentation to start with react
+
+    https://create-react-app.dev/docs/getting-started/
+
+now in the root of the our project executes the follow
+command
+
+    npx create-react-app client-app --use-npm --typescript
+
+after is installed weeel si in the project a new folder called client-app
+open vs code again and see the content of the new folder
+
+pass to the client -app folder and executes 
+    npm start
+    it will executes our application
